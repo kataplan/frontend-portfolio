@@ -1,0 +1,43 @@
+*,body{
+  font-family: $font-principal;
+  margin: 0;
+  padding: 0;
+}
+html {
+  background: $main-background;
+}
+
+#app {
+  background:  $main-background;
+  min-height: 100vh;
+  
+}
+
+.progress-light {
+  background-color: $btn-bg;
+}
+
+.btn-submit {
+  background-color: $btn-bg;
+  border-color: $btn-border;
+  color: $btn-font;
+}
+
+.btn-submit:hover {
+  color: $btn-font;
+  background-color: $btn-hover;
+  border-color: $btn-border-hover;
+}
+
+.btn-link {
+  color: $btn-bg;
+  text-decoration: none;
+}
+
+.btn-link:hover {
+  color: $btn-hover;
+}
+
+.error-msg {
+  height: 25px;
+}
