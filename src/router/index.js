@@ -2,8 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import Contact from "../views/Contact.vue";
 import Proyects from "../views/Proyects.vue";
-import About from "../views/About.vue";
-
+import Error404 from "../views/Error404.vue"
 const routes = [
   {
     path: "/",
@@ -15,16 +14,17 @@ const routes = [
     name: "contact",
     component: Contact,
   },
-  {
-    path: "/acerca-de-mi",
-    name: "about",
-    component: About,
-  },
+  
   {
     path: "/proyectos",
     name: "proyects",
     component: Proyects,
   },
+  {
+    path:"/:pathMatch(.*)",
+    name: "not-found",
+    component: Error404,
+  }
 ];
 
 const router = createRouter({
