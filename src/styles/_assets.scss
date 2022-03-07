@@ -1,43 +1,31 @@
-*,body{
-  font-family: $font-principal;
+*,
+body {
+  font-family: $font-family;
   margin: 0;
   padding: 0;
 }
-html {
-  background: $main-background;
-}
 
 #app {
-  background:  $main-background;
-  min-height: 100vh;
-  
+  background: $dark-primary ;
+  letter-spacing: 0.24px;
+  color: $text-color;
+  font-family: $font-family;
+  font-size: 1.5rem;
 }
-
-.progress-light {
-  background-color: $btn-bg;
+button {
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
 }
-
-.btn-submit {
-  background-color: $btn-bg;
-  border-color: $btn-border;
-  color: $btn-font;
+.flex-cntr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-.btn-submit:hover {
-  color: $btn-font;
-  background-color: $btn-hover;
-  border-color: $btn-border-hover;
-}
-
-.btn-link {
-  color: $btn-bg;
-  text-decoration: none;
-}
-
-.btn-link:hover {
-  color: $btn-hover;
-}
-
-.error-msg {
-  height: 25px;
+.section-title{
+  font-weight: 800;
+  color: $accent-color;
+  letter-spacing: 0.56px;
+  font-size: 3rem;
 }
