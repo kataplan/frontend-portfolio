@@ -1,19 +1,21 @@
 <template>
   <div class="home">
-    <div>
-      <h2>Diego Catalán</h2>
-    </div>
-    <div>
-      Soy estudiante de Ingeniería Civil Informática, programador frontend y con
-      meta de llegar a dominar el fullstack
-    </div>
+    <Presentation></Presentation>
+    <Aptitudes></Aptitudes>
   </div>
 </template>
 
 <script>
+import Presentation from "@/components/Presentation";
+import Aptitudes from "@/components/Aptitudes"
+
 export default {
   name: "Home",
-  components: {},
+  components: {Presentation,Aptitudes},
 };
 </script>
+
+<style lang="scss">
+
+</style>
 
