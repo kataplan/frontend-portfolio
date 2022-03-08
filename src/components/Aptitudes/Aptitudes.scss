@@ -1,0 +1,71 @@
+.aptitudes {
+  height: 60vh;
+  &_header {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 60px;
+  }
+  &_title {
+    margin: 0 84px 5px 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    line-height: 70px;
+  }
+  &_bar {
+    width: 50px;
+    height: 7px;
+    background: $text-color;
+    position: absolute;
+    margin: 15px 50px 0 0;
+
+    border-radius: 5px;
+    animation: bar 3s ease-in-out 2s infinite alternate-reverse;
+  }
+  &_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 94px;
+  }
+
+  &_container {
+    background-color: $text-color;
+    width: 300px;
+    height: 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 15px;
+    &_bar {
+      height: 9px;
+      width: 69px;
+      border-radius: 18px;
+      background-color: $accent-color;
+      margin-bottom: 15px;
+    }
+  }
+  &_emoji {
+    width: 59px;
+    height: 59px;
+  }
+
+  &_text {
+    color: $bg-color;
+    font-size: 1.2rem;
+    letter-spacing: 0.22px;
+    text-align: center;
+  }
+}
+.blob-1 {
+  border-radius: 30% 70% 32% 39% / 60% 40% 61% 42%;
+}
+.blob-2 {
+  border-radius: 68% 40% 39% 70% / 80% 45% 70% 40%;
+}
