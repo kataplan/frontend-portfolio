@@ -1,0 +1,58 @@
+.about-me {
+  box-sizing: border-box;
+  padding: 125px;
+  &_header {
+    box-sizing: border-box;
+  }
+  &_plus {
+    color: $text-color;
+    margin-right: 10px;
+  }
+  &_bar {
+    width: 50px;
+    height: 7px;
+    background: $text-color;
+    position: absolute;
+    margin: 15px 0 0 0;
+    border-radius: 5px;
+    animation: bar 3s linear 2s infinite alternate;
+  }
+  &_content {
+    margin-top: 85px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+  &_circle {
+    border-radius: 70% 30% 30% 70% / 60% 40% 60% 40%;
+
+    width: 453px;
+    height: 453px;
+    overflow: hidden;
+  }
+  &_profile-image {
+    width: 125%;
+    transform: translateX(-35px);
+  }
+  &_list {
+    width: 50%;
+
+    &_item {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 25px;
+      list-style: none;
+      &_text {
+        letter-spacing: 0.36px;
+        font: normal normal normal 1.4rem Lato;
+      }
+      &_arrow {
+        color: $accent-color;
+      }
+      &_bold {
+          font-weight: 800;
+      }
+    }
+  }
+}
