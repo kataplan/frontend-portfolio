@@ -1,7 +1,14 @@
-/* eslint-disable prettier/prettier */
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { getStorage } from "firebase/storage";
+import {
+  initializeApp
+} from "firebase/app";
+import {
+  getFirestore,
+  
+} from "firebase/firestore";
+import {
+  getStorage
+} from "firebase/storage";
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyAQBXVZPHoQtWJUzTgQdwGsYC5iDyzOsrM",
@@ -15,6 +22,5 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const storage = getStorage(app);
-const db = getFirestore();
-export default db;
+export const storage = getStorage();
+export const db = getFirestore(app);
