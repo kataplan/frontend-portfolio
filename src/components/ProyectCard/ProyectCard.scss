@@ -1,0 +1,9 @@
+.proyect-card {
+    width:100%;
+    display: flex;
+    
+    flex-direction: column;
+    &_thumbnail{
+        width: 100%;
+    }
+}
