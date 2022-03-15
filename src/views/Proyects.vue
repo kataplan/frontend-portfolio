@@ -1,20 +1,22 @@
 <template>
   <section class="proyects">
     <h1 class="section-title">Proyectos</h1>
-    <div v-for="(item, index) in proyects" :key="index">
-      <div>{{ item.id }}</div>
-      <div>{{ item.stack }}</div>
+    <div class="proyects_grid">
+      <div v-for="(item, index) in proyects" :key="index">
+        <ProyectCard :proyect="item"></ProyectCard>
+      </div>
     </div>
   </section>
 </template>
 
 <script>
-import { db,storage } from "@/firebase/init";
+import { db, storage } from "@/firebase/init";
 import { collection, getDocs } from "firebase/firestore";
 import { ref, getDownloadURL } from "firebase/storage";
+import ProyectCard from "@/components/ProyectCard";
 export default {
   name: "Home",
-  components: {},
+  components: { ProyectCard },
   data() {
     return { proyects: [] };
   },
@@ -24,17 +26,18 @@ export default {
       querySnapshot.forEach((doc) => {
         let proyect = doc.data();
         proyect.id = doc.id;
+        this.handleDownload(
+          "images/" + proyect.images[0]._key.path.segments[8],
+          proyect.id
+        );
         this.proyects.push(proyect);
-        console.log(proyect)
-        console.log(proyect.images[0]._key.path.segments)
-        this.handleDownload("images/"+proyect.images[0]._key.path.segments[8])
       });
     },
-    handleDownload(reference) {
+    handleDownload(reference, id) {
       const gsReference = ref(storage, reference);
       getDownloadURL(gsReference)
         .then((url) => {
-          <img src={url} />
+          document.getElementById(id).src = url;
         })
         .catch((error) => {
           switch (error.code) {
@@ -64,5 +67,10 @@ export default {
   min-height: 100vh;
   padding: 84px 5%;
   box-sizing: border-box;
+  &_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 400px);
+    grid-gap: 5%;
+  }
 }
 </style>
