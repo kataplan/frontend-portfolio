@@ -8,7 +8,7 @@ export default {
   props: {proyect:Object},
   data () {
     return {
-      imagesUrl:[]
+      imagesUrl:[],
     }
   },
   computed: {
@@ -16,11 +16,12 @@ export default {
   },
   mounted () {
     this.imagesUrl = []
+
     this.getImages()
+    console.log(this.proyect)
   },
   methods: {
     async getImages(){
-      console.log(this.proyect.images)
       this.proyect.images.forEach(element => {
         
         this.handleDownload("images/" + element._key.path.segments[8])
@@ -47,7 +48,13 @@ export default {
             break;
         }
       });
+      
     },
+    getImgUrl(str) {
+      var images = require.context('@/assets/icons', false, /\.svg$/)
+      return images('./' + str.toLowerCase() + ".svg")
+    },
+    
   }
 }
 

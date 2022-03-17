@@ -1,9 +1,34 @@
 .proyect-card {
     width:100%;
     display: flex;
-    
     flex-direction: column;
+    background-color: $primary;
+    box-sizing: border-box;
+    padding: 25px 20px 10px;
+    border-radius: 10px;
+    border: 3px $accent-color solid;
     &_thumbnail{
         width: 100%;
+        border-radius: 10px;
+    }
+    &_title{
+        margin: 20px 0 10px;
+        font-size: 1.8rem;
+    }
+    &_subtitle{
+        font-size: 1rem;
+        color: $bg-color;
+    }
+    &_icon{
+        height: auto;
+        width: 25px;
+        filter: invert(46%) sepia(5%) saturate(38%) hue-rotate(314deg) brightness(94%) contrast(90%);
+    }
+    &_grid{
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5%;
+        
     }
 }

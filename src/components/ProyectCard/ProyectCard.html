@@ -1,7 +1,10 @@
 
 <section class="proyect-card">
   <img :src="imagesUrl[0]" class="proyect-card_thumbnail" :alt="proyect.id" />
-  <h1>{{proyect.title}}</h1>
-  <div>{{proyect.description}}</div>
+  <h1 class="proyect-card_title">{{proyect.title}}</h1>
+  <p class="proyect-card_subtitle">{{proyect.description}}</p>
+  <div class="proyect-card_grid">
+    <img v-for="(item, index) in proyect.stack" :key="index" :src="getImgUrl(item)" :alt="item" class="proyect-card_icon">
+  </div>
 </section>
 
