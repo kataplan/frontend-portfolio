@@ -44,8 +44,9 @@ export default {
   padding: 84px 5%;
   box-sizing: border-box;
   &_grid {
+    margin-top: 50px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, 400px);
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     grid-gap: 5%;
   }
 }
