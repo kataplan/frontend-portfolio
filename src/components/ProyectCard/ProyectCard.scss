@@ -1,7 +1,9 @@
 .proyect-card {
     width:100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     background-color: $primary;
     box-sizing: border-box;
     padding: 25px 20px 10px;
@@ -23,7 +25,13 @@
         height: auto;
         width: 25px;
         filter: invert(46%) sepia(5%) saturate(38%) hue-rotate(314deg) brightness(94%) contrast(90%);
+        transition: ease-in-out 0.09s;
     }
+    &_icon:hover{
+
+        filter: none;
+    }
+
     &_grid{
         margin-top: 20px;
         display: flex;
