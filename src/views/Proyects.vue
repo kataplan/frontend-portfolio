@@ -1,10 +1,13 @@
 <template>
   <section class="proyects">
-    <h1 class="section-title">Proyectos</h1>
+    <h1 class="section-title">Mis Proyectos</h1>
+    <p>Aquí se muestran los proyectos que he realizado y he sido parte.</p>
     <div class="proyects_grid">
-      <div v-for="(item, index) in proyects" :key="index">
-        <ProyectCard :proyect="item"></ProyectCard>
-      </div>
+      <TransitionGroup name="fade">
+        <div v-for="(item, index) in proyects" :key="index">
+          <ProyectCard :proyect="item"></ProyectCard>
+        </div>
+      </TransitionGroup>
     </div>
   </section>
 </template>
@@ -25,11 +28,10 @@ export default {
       querySnapshot.forEach((doc) => {
         let proyect = doc.data();
         proyect.id = doc.id;
-       
+
         this.proyects.push(proyect);
       });
     },
-     
   },
   mounted() {
     this.getProyects();
@@ -44,9 +46,10 @@ export default {
   padding: 84px 5%;
   box-sizing: border-box;
   &_grid {
-    margin-top: 50px;
+    margin-top: 100px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 0.5fr));
     grid-gap: 5%;
   }
 }

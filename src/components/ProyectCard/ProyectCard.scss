@@ -1,42 +1,68 @@
 .proyect-card {
-    width:100%;
+    width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+   
     background-color: $primary;
     box-sizing: border-box;
     padding: 25px 20px 10px;
     border-radius: 10px;
-    border: 3px $accent-color solid;
-    &_thumbnail{
+    border: 2px $accent-color solid;
+    cursor: pointer;
+    &_thumbnail {
         width: 100%;
         border-radius: 10px;
     }
-    &_title{
+    &_title {
         margin: 20px 0 10px;
         font-size: 1.8rem;
     }
-    &_subtitle{
+    &_subtitle {
         font-size: 1rem;
         color: $bg-color;
     }
-    &_icon{
+    &_thumbnail{
+        width: 100%;
+        transition: all 1s ease-in-out;
+        &_container{
+            height:150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+
+        }   
+    }
+    &_thumbnail:hover{
+        width: 110%;
+    }
+    &_icon {
         height: auto;
         width: 25px;
         filter: invert(46%) sepia(5%) saturate(38%) hue-rotate(314deg) brightness(94%) contrast(90%);
         transition: ease-in-out 0.09s;
     }
-    &_icon:hover{
-
+    &_icon:hover {
         filter: none;
     }
 
-    &_grid{
+    &_grid {
         margin-top: 20px;
         display: flex;
         flex-wrap: wrap;
         gap: 5%;
-        
     }
 }
+.modal {
+    position: fixed;
+    z-index: 99;
+    top: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+    
+    
+  }

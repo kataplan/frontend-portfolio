@@ -1,18 +1,13 @@
-
-import { ref, getDownloadURL } from "firebase/storage";
+import { getDownloadURL, ref } from "firebase/storage"
 import { storage } from "@/firebase/init";
-import ProyectDetails from "@/components/ProyectDetails"
-export default {
 
-  name: 'proyect-card',
-  components: { ProyectDetails },
+export default {
+  name: 'proyect-details',
+  components: {},
   props: { proyect: Object },
-  data() {
+  data () {
     return {
       imagesUrl: [],
-      thumbnail: String,
-      open: false,
-      isLoaded: false,
     }
   },
   computed: {
@@ -24,15 +19,17 @@ export default {
   },
   methods: {
     async getImages() {
-      this.handleThumbnail("thumbnails/" + this.proyect.thumbnail._key.path.segments[8])
-
+      this.proyect.images.forEach(element => {
+        this.handleDownload("images/" + element._key.path.segments[8])
+      });
     },
-    handleThumbnail(reference) {
+
+    handleDownload(reference) {
       const gsReference = ref(storage, reference);
       getDownloadURL(gsReference)
         .then((url) => {
-          this.thumbnail = url;
-          this.isLoaded = true;
+          this.imagesUrl.push(url);
+
         })
         .catch((error) => {
           switch (error.code) {
@@ -57,5 +54,7 @@ export default {
 
   }
 }
+
+
 
 

@@ -1,10 +1,16 @@
-
-<section class="proyect-card">
-  <img :src="imagesUrl[0]" class="proyect-card_thumbnail" :alt="proyect.id" />
+<section class="proyect-card" @click="open = true">
+  <div class="proyect-card_thumbnail_container">
+    <img v-if="isLoaded" :src="thumbnail" class="proyect-card_thumbnail" :alt="proyect.id" />
+  </div>
   <h1 class="proyect-card_title">{{proyect.title}}</h1>
   <p class="proyect-card_subtitle">{{proyect.description}}</p>
-  <div class="proyect-card_grid">
-    <img v-for="(item, index) in proyect.stack" :key="index" :src="getImgUrl(item)" :alt="item" class="proyect-card_icon">
-  </div>
+  <!-- <div class="proyect-card_grid">
+    <img v-for="(item, index) in proyect.stack" :key="index" :src="getImgUrl(item)" :alt="item"
+      class="proyect-card_icon">
+  </div> -->
+  <Teleport to="body">
+    <div v-if="open" class="modal">
+      <ProyectDetails :proyect="proyect"></ProyectDetails>
+    </div>
+  </Teleport>
 </section>
-
