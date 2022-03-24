@@ -43,6 +43,7 @@ export default {
 .proyects {
   width: 100%;
   min-height: 100vh;
+  height: fit-content;
   padding: 84px 5%;
   box-sizing: border-box;
   &_grid {
@@ -50,7 +51,7 @@ export default {
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(250px, 0.5fr));
-    grid-gap: 5%;
+    grid-gap: 15px;
   }
 }
 </style>
