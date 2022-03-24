@@ -54,7 +54,9 @@ export default {
       var images = require.context('@/assets/icons', false, /\.svg$/)
       return images('./' + str.toLowerCase() + ".svg")
     },
-
+    handleClose(){
+      this.open = false;
+    }
   }
 }
 

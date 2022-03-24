@@ -4,13 +4,10 @@
   </div>
   <h1 class="proyect-card_title">{{proyect.title}}</h1>
   <p class="proyect-card_subtitle">{{proyect.description}}</p>
-  <!-- <div class="proyect-card_grid">
-    <img v-for="(item, index) in proyect.stack" :key="index" :src="getImgUrl(item)" :alt="item"
-      class="proyect-card_icon">
-  </div> -->
+  
   <Teleport to="body">
     <div v-if="open" class="modal">
-      <ProyectDetails :proyect="proyect"></ProyectDetails>
+      <ProyectDetails :proyect="proyect" :handleClose="this.handleClose"></ProyectDetails>
     </div>
   </Teleport>
 </section>
