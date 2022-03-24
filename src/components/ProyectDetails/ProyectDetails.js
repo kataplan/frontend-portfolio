@@ -8,6 +8,9 @@ export default {
   data () {
     return {
       imagesUrl: [],
+      isGithubAvailabe: true,
+      isOnlineAvailabe:true,
+
     }
   },
   computed: {
@@ -16,8 +19,13 @@ export default {
   mounted() {
     this.imagesUrl = []
     this.getImages()
-    console.log("first")
     console.log( new Date(this.proyect.date.seconds * 1000));
+    if(this.proyect.github ==="private"){
+      this.isGithubAvailabe=false;
+    }
+    if(this.proyect.online ==="none"){
+      this.isOnlineAvailabe= false;
+    }
     
   },
   methods: {

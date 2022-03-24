@@ -1,38 +1,85 @@
 .proyect-details {
     opacity: 1;
-    background-color: $dark-primary;
-    border: 2px $text-color solid;
-    border-radius: 5px;
-    width: 40%;
-    height: 350px;
-    max-width: 800px;
+    background-color: $primary;
+    border: 3px $accent-color solid;
+    border-radius: 20px;
+    width: 60%;
+    height: fit-content;
+    max-width: 1000px;
     min-width: 300px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+
     z-index: 9999;
-    &_title{
-        color:$text-color;
-        margin-top: 25px;
+    padding: 25px 5% 30px;
+    box-sizing: border-box;
+    &_title {
+        color: $text-color;
         font-size: 2rem;
+        text-align: left;
+        margin-bottom: 10px;
     }
-    &_icon {
+    &_close {
+        font-size: 1.2rem;
+        font-weight: 800;
+        position: relative;
+        left: 108%;
+        top: -36px;
+        background-color: $primary ;
+        color: $accent-color;
+        border-radius: 100%;
+        padding: 2px;
+        width: 32px;
+        height: 32px;
+        border: 3px $accent-color solid;
+
+        text-align: center;
+    }
+    &_icon,
+    &_link-icon {
         height: auto;
         width: 35px;
-        filter: invert(46%) sepia(5%) saturate(38%) hue-rotate(314deg) brightness(94%) contrast(90%);
-        transition: ease-in-out 0.09s;
+        filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(71deg) brightness(110%) contrast(101%);
+        opacity: 0.3;
+        transition: ease-in-out 0.09s all;
     }
     &_icon:hover {
         filter: none;
+        opacity: 1;
     }
-
+    &_link-icon:hover {
+        filter: invert(79%) sepia(12%) saturate(1724%) hue-rotate(162deg) brightness(99%) contrast(85%);
+        opacity: 1;
+    }
+    &_description {
+        margin-bottom: 25px;
+        color: $text-color;
+    }
     &_stack-container {
-        justify-content: center;
         width: 100%;
-        margin-top: 20px;
         display: flex;
         flex-wrap: wrap;
         gap: 5%;
     }
-
+    &_subtitle {
+        margin: 20px 0 10px;
+        color: $text-color;
+    }
+    &_image {
+        border-radius: 20px;
+        width: 100%;
+    }
+    &_container {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+    &_tecnologys {
+        width: 100%;
+    }
+    &_links {
+        width: 100%;
+        align-self: flex-end;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
 }
