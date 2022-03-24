@@ -1,5 +1,11 @@
 
 <section class="proyect-details">
-  <h1>proyect-details Component</h1>
+  <button @click="handleClose">X</button>
+  <h1 class="proyect-details_title">{{proyect.title}}</h1>
+  <p> {{proyect.description}}</p>
+  <div class="proyect-details_stack-container">
+    <img v-for="(item, index) in proyect.stack" :key="index" :src="getImgUrl(item)" :alt="item"
+      class="proyect-details_icon">
+  </div> 
 </section>
 

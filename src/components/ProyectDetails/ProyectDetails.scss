@@ -6,8 +6,33 @@
     width: 40%;
     height: 350px;
     max-width: 800px;
+    min-width: 300px;
     display: flex;
     align-items: center;
     flex-direction: column;
     z-index: 9999;
+    &_title{
+        color:$text-color;
+        margin-top: 25px;
+        font-size: 2rem;
+    }
+    &_icon {
+        height: auto;
+        width: 35px;
+        filter: invert(46%) sepia(5%) saturate(38%) hue-rotate(314deg) brightness(94%) contrast(90%);
+        transition: ease-in-out 0.09s;
+    }
+    &_icon:hover {
+        filter: none;
+    }
+
+    &_stack-container {
+        justify-content: center;
+        width: 100%;
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5%;
+    }
+
 }

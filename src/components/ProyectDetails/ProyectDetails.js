@@ -4,7 +4,7 @@ import { storage } from "@/firebase/init";
 export default {
   name: 'proyect-details',
   components: {},
-  props: { proyect: Object },
+  props: { proyect: Object , handleClose:Function},
   data () {
     return {
       imagesUrl: [],
@@ -16,6 +16,9 @@ export default {
   mounted() {
     this.imagesUrl = []
     this.getImages()
+    console.log("first")
+    console.log( new Date(this.proyect.date.seconds * 1000));
+    
   },
   methods: {
     async getImages() {
@@ -51,7 +54,9 @@ export default {
       var images = require.context('@/assets/icons', false, /\.svg$/)
       return images('./' + str.toLowerCase() + ".svg")
     },
-
+    closeModal(){
+      this.handleClose()  
+    }
   }
 }
 
