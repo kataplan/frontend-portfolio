@@ -40,3 +40,26 @@
   opacity: 0;
   transform: translateY(30px);
 }
+
+.spin::before {
+  animation: 1s ease-in-out infinite spinner;
+  animation-play-state: inherit;
+  border: solid 5px transparent;
+  border-bottom-color: $accent-color;
+  border-radius: 50%;
+  content: "";
+  height: 40px;
+  position: absolute;
+  
+  transform: translate3d(-50%, -50%, 0);
+  width: 40px;
+  will-change: transform;
+}
+@keyframes spinner {
+  0% {
+    transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) rotate(360deg);
+  }
+}
