@@ -1,14 +1,16 @@
 .presentation {
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   &_hello-image {
     width: 55%;
     max-width: 519px;
   }
-  &_container {
-    padding: 0 63px;
-    width: 100%;
-    height: 100vh;
-    box-sizing: border-box;
-  }
+
   &_message {
     width: 50%;
   }
@@ -16,7 +18,6 @@
     width: 50px;
     height: 7px;
     background: $text-color;
-    position: absolute;
     margin: 15px 0 0 0;
     border-radius: 5px;
     animation: bar 3s linear 2s infinite alternate;
@@ -42,6 +43,22 @@
     }
   }
   &_profile-picture {
-    width: 86%;
+    width: 100%;
+  }
+  @media (max-width: 980px) {
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 20px;
+    &_message {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+    &_circle{
+      width: 250px;
+      height: 250px;
+    }
   }
 }
