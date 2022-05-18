@@ -1,10 +1,12 @@
 <section class="proyect-details">
-  <div>
-    <button class="proyect-details_close" @click="handleClose"><i class="fa-solid fa-xmark"></i></button>
-  </div>
+
   <h1 class="proyect-details_title">{{proyect.title}}</h1>
   <p class="proyect-details_description"> {{proyect.description}}</p>
-  <img :src="imagesUrl[0]" alt="imagen" class="proyect-details_image">
+  <div class="proyect-details_date">Fecha de inicio del proyecto: {{this.proyectDate}}</div>
+  <img v-if="imagesUrl.length > 0" :src="imagesUrl[0]" alt="imagen" class="proyect-details_image">
+  <div v-else class="proyect-details_spin-container">
+    <div class="spin"></div>
+  </div>
   <div class="proyect-details_container">
     <div class="proyect-details_tecnologys">
       <h3 class="proyect-details_subtitle">Tecnologías</h3>

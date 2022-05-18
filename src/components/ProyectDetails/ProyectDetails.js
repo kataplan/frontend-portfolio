@@ -10,7 +10,8 @@ export default {
       imagesUrl: [],
       isGithubAvailabe: true,
       isOnlineAvailabe:true,
-
+      proyectDate:0,
+      isLoaded:false,
     }
   },
   computed: {
@@ -19,7 +20,7 @@ export default {
   mounted() {
     this.imagesUrl = []
     this.getImages()
-    console.log( new Date(this.proyect.date.seconds * 1000));
+    this.handleDate()
     if(this.proyect.github ==="private"){
       this.isGithubAvailabe=false;
     }
@@ -64,6 +65,11 @@ export default {
     },
     closeModal(){
       this.handleClose()  
+    },
+    handleDate(){
+      const date = new Date(this.proyect.date.seconds * 1000);
+      const formattedDate = date.getMonth() +"/"+date.getFullYear()
+      this.proyectDate = formattedDate
     }
   }
 }
