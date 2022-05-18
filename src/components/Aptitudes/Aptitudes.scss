@@ -1,5 +1,9 @@
 .aptitudes {
-  height: 60vh;
+  min-height: 60vh;
+  padding: 20px 0;
+  box-sizing: border-box,;
+  background-color: $primary;
+  border-radius: 50px;
   &_header {
     width: 100%;
     display: flex;
@@ -27,16 +31,16 @@
   }
   &_grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 300px);
-    justify-content: space-evenly;
-    width: 100%;
-    margin-top: 94px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    justify-content: center;
+    margin: 50px 3%;
+    gap: 15px;
   }
 
   &_container {
     background-color: $text-color;
-    width: 300px;
-    height: 230px;
+    width: 100%;
+    min-height: 230px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -61,6 +65,14 @@
     font-size: 1.1rem;
     letter-spacing: 0.22px;
     text-align: center;
+  }
+  @media (max-width: 980px) {
+    &_header {
+      align-items: center;
+    }
+    &_title{
+      margin: 0;
+    }
   }
 }
 .blob-1 {
