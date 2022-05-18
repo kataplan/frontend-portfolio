@@ -17,4 +17,17 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.home{
+  padding:0 5%;
+  box-sizing: border-box;
+  
+}
+  @media (max-width: 980px) {
+    .home{
+      padding: 0;
+    }
+  }
+
+
+</style>
