@@ -4,9 +4,7 @@
     <p>Aquí se muestran los proyectos que he realizado y he sido parte.</p>
     <div class="proyects_grid">
       <TransitionGroup name="fade">
-        <div v-for="(item, index) in proyects" :key="index">
-          <ProyectCard :proyect="item"></ProyectCard>
-        </div>
+        <ProyectCard v-for="(item, index) in proyects" :key="index" :proyect="item"></ProyectCard>
       </TransitionGroup>
     </div>
   </section>
@@ -47,7 +45,7 @@ export default {
   padding: 84px 5%;
   box-sizing: border-box;
   &_grid {
-    margin-top: 100px;
+    margin-top: 50px;
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(250px, 0.5fr));
