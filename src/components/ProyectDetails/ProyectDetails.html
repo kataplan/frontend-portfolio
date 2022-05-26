@@ -3,7 +3,7 @@
   <h1 class="proyect-details_title">{{proyect.title}}</h1>
   <p class="proyect-details_description"> {{proyect.description}}</p>
   <div class="proyect-details_date">Fecha de inicio del proyecto: {{this.proyectDate}}</div>
-  <img v-if="imagesUrl.length > 0" :src="imagesUrl[0]" alt="imagen" class="proyect-details_image">
+  <ImageSlider v-if="imagesUrl.length > 0" :images="imagesUrl"/>
   <div v-else class="proyect-details_spin-container">
     <div class="spin"></div>
   </div>
