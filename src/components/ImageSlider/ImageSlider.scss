@@ -1,3 +1,29 @@
 .image-slider {
 
+    display: flex;
+    &_images{
+        width: 10%;    
+        width: 100%;
+        min-width: 800;
+    }
+    &_slide{
+        display: none;    
+    }
+    &_fade{
+        width: 100%;
+        overflow: hidden;
+    }
+    &_container{
+        display: flex;
+        justify-content: center;
+    }
+    &_fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+      
+      @keyframes fade {
+        from {opacity: .4}
+        to {opacity: 1}
+      }
 }
