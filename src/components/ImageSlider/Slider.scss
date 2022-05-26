@@ -1,6 +1,19 @@
 .slider {
-
+    justify-content: space-between;
+    align-items: center;
     display: flex;
+    position: relative;
+    &_number{
+        color: $text-color;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: rgba($dark-primary, .5);
+        border-radius: 5px;
+        padding: 8px 12px;
+        margin: 4px 6px;
+
+    }
     &_images{
         width: 10%;    
         width: 100%;
@@ -15,13 +28,45 @@
     }
     &_container{
         display: flex;
-        justify-content: center;
+        
     }
     &_fade {
         animation-name: fade;
         animation-duration: 1.5s;
       }
       
+    &_btn{
+        color:$accent-color;
+        position: absolute;
+        top: 50%;
+        margin-top: -22px;
+        width: auto;
+        background-color: $dark-primary;
+        height: 50px;
+        aspect-ratio: 1 / 1;
+        border: 2px $accent-color solid;
+        border-radius: 100%;
+        font-size: 25px;
+        transition: all .1s ease-in-out;
+        text-align: center;
+        user-select: none;
+
+    }
+    &_btn:hover{
+        color:$text-color;
+        border: 2px$text-color solid;
+    }
+    &_btn:active{
+        background: $accent-color;
+    }
+    &_btn-right{
+        right: 0;
+        margin-right: 5px;
+    }
+    &_btn-left{
+        margin-left: 5px;
+    }
+
       @keyframes fade {
         from {opacity: .4}
         to {opacity: 1}

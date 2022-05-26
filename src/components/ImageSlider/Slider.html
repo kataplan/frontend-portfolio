@@ -1,12 +1,12 @@
-
 <section class="slider">
-  <button @click="plusSlides(-1)">Menos</button>
+  
   <div class="slider_container">
-    <div v-for="image in images" class="slider_fade slider_slide">
+    <div v-for="(image,index) in images" class="slider_fade slider_slide" >
+      <div class="slider_number">{{index+1}} / {{images.length}}</div>
       <img :src="image" alt="imagen" class="slider_images">   
     </div>
   </div>
-  <button @click="plusSlides(1)">Mas</button>
+  <button class="slider_btn slider_btn-left" @click="plusSlides(-1)"><i class="fa-solid fa-angle-left"></i></button>
+  <button class="slider_btn slider_btn-right" @click="plusSlides(1)"><i class="fa-solid fa-angle-right"></i></button>
 
 </section>
-
