@@ -1,17 +1,17 @@
 import { getDownloadURL, ref } from "firebase/storage"
 import { storage } from "@/firebase/init";
-import  ImageSlider  from "@/components/ImageSlider";
+import ImageSlider from "@/components/ImageSlider";
 export default {
   name: 'proyect-details',
-  components: { ImageSlider},
-  props: { proyect: Object , handleClose:Function},
-  data () {
+  components: { ImageSlider },
+  props: { proyect: Object, handleClose: Function },
+  data() {
     return {
       imagesUrl: [],
       isGithubAvailabe: true,
-      isOnlineAvailabe:true,
-      proyectDate:0,
-      isLoaded:false,
+      isOnlineAvailabe: true,
+      proyectDate: 0,
+      isLoaded: false,
     }
   },
   computed: {
@@ -21,13 +21,13 @@ export default {
     this.imagesUrl = []
     this.getImages()
     this.handleDate()
-    if(this.proyect.github ==="private"){
-      this.isGithubAvailabe=false;
+    if (this.proyect.github === "private") {
+      this.isGithubAvailabe = false;
     }
-    if(this.proyect.online ==="none"){
-      this.isOnlineAvailabe= false;
+    if (this.proyect.online === "none") {
+      this.isOnlineAvailabe = false;
     }
-    
+
   },
   methods: {
     async getImages() {
@@ -63,12 +63,12 @@ export default {
       var images = require.context('@/assets/icons', false, /\.svg$/)
       return images('./' + str.toLowerCase() + ".svg")
     },
-    closeModal(){
-      this.handleClose()  
+    closeModal() {
+      this.handleClose()
     },
-    handleDate(){
+    handleDate() {
       const date = new Date(this.proyect.date.seconds * 1000);
-      const formattedDate = date.getMonth() +"/"+date.getFullYear()
+      const formattedDate = date.getMonth() + "/" + date.getFullYear()
       this.proyectDate = formattedDate
     }
   }
