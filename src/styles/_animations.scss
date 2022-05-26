@@ -45,7 +45,7 @@
   animation: 1s ease-in-out infinite spinner;
   animation-play-state: inherit;
   border: solid 5px transparent;
-  border-bottom-color: $accent-color;
+  border-bottom-color: var(--accent);
   border-radius: 50%;
   content: "";
   height: 40px;

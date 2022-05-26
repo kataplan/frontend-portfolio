@@ -1,10 +1,32 @@
-
-
-$dark-primary: #023047;
-$primary: #012030;
-$accent-color: #7BCCE9;
-$text-color: #fff;
-$bg-color: #707070;
-
 $font-family: 'lato','Roboto', sans-serif;
+$blue: #023047;
+$dark-blue: #012030;
+$light-blue: #7BCCE9;
+$white: #fff;
+$off-white:#f1feff;
+$grey: #707070;
+$black: #020202;
+
+:root {
+    --body-bg: #{$off-white};
+    --body-fg: #{$white};
+    --accent: #{$light-blue};
+    --link-color: #{$light-blue};
+    --text-color: #{$black};
+    --text-alternative:#{$grey};
+    --decor:#{$light-blue};
+  
+    @media (prefers-color-scheme: dark) {
+        --body-bg: #{$dark-blue};
+        --body-fg: #{$blue};
+        --accent: #{$light-blue};
+        --link-color: #{$light-blue};
+        --text-color: #{$white};
+        --text-alternative:#{$grey};
+        --decor:#{$white};
+    }
+};
+  
+
+
 

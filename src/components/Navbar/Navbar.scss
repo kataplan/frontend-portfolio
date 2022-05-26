@@ -2,7 +2,7 @@
   &-top-bar,
   &-left-bar,
   &-right-bar {
-    background-color: $text-color;
+    background-color: var(--text-color);
     position: fixed;
   }
   &-top-bar{
@@ -35,12 +35,12 @@
       gap: 10px;
       &-text{
         font-size: 1rem;
-        color:$accent-color
+        color:var(--accent)
         
       }
   }
   &-button:hover{
-    text-decoration: solid 1px $accent-color;
+    text-decoration: solid 1px var(--accent);
   }
 
 }

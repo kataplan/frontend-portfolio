@@ -17,7 +17,7 @@
   &_bar {
     width: 50px;
     height: 7px;
-    background: $text-color;
+    background: var(--text-color);
     margin: 15px 0 0 0;
     border-radius: 5px;
     animation: bar 3s linear 2s infinite alternate;
@@ -27,7 +27,7 @@
     border-radius: 100% 100% 100% 100% / 100% 100% 100% 100%;
     animation: profile 4.5s linear 2s 1 alternate;
     animation-iteration-count: 4;
-    background: $accent-color;
+    background: var(--accent);
     width: 353px;
     height: 353px;
     overflow: hidden;

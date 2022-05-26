@@ -5,13 +5,13 @@
     box-sizing: border-box;
   }
   &_plus {
-    color: $text-color;
+    color: var(--decor);
     margin-right: 10px;
   }
   &_bar {
     width: 50px;
     height: 7px;
-    background: $text-color;
+    background: var(--decor);
     position: absolute;
     margin: 15px 0 0 0;
     border-radius: 5px;
@@ -46,7 +46,7 @@
         font: normal normal normal 1.4rem Lato;
       }
       &_arrow {
-        color: $accent-color;
+        color: var(--accent);
       }
       &_bold {
         font-weight: 800;
@@ -61,8 +61,8 @@
     flex-direction: column;
     &_btn {
       margin-top: 20px;
-      background-color: $accent-color;
-      color: $text-color;
+      background-color: var(--accent);
+      color: var(--text-color);
       border-radius: 20px;
       font-weight: 600;
       font-size: 1.5rem;

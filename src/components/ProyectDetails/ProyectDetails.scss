@@ -1,7 +1,7 @@
 .proyect-details {
     opacity: 1;
-    background-color: $primary;
-    border: 3px $accent-color solid;
+    background-color: var(--body-fg);
+    border: 3px var(--accent) solid;
     border-radius: 20px;
     width: 100%;
     height: fit-content;
@@ -12,7 +12,7 @@
     padding: 30px 5% 30px;
     box-sizing: border-box;
     &_title {
-        color: $text-color;
+        color: var(--text-color);
         font-size: 2rem;
         text-align: left;
         margin-bottom: 10px;
@@ -36,7 +36,7 @@
     }
     &_description {
         margin-bottom: 5px;
-        color: $text-color;
+        color: var(--text-color);
     }
     &_stack-container {
         width: 100%;
@@ -46,7 +46,7 @@
     }
     &_subtitle {
         margin: 20px 0 10px;
-        color: $text-color;
+        color: var(--text-color);
     }
     &_image {
         border-radius: 20px;
@@ -69,7 +69,7 @@
         align-items: flex-end;
     }
     &_date {
-        color: $bg-color;
+        color: var(--text-alternative);
         margin-bottom: 20px;
     }
     &_spin-container {

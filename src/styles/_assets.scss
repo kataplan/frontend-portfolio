@@ -6,9 +6,9 @@ body {
 }
 
 #app {
-  background: $dark-primary;
+  background: var(--body-bg);
   letter-spacing: 0.24px;
-  color: $text-color;
+  color: var(--text-color);
   font-family: $font-family;
   font-size: 1.5rem;
 }
@@ -25,7 +25,7 @@ button {
 }
 .section-title {
   font-weight: 800;
-  color: $accent-color;
+  color: var(--accent);
   letter-spacing: 0.56px;
   font-size: 3rem;
 }

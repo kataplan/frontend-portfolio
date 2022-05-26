@@ -2,7 +2,7 @@
   min-height: 60vh;
   padding: 20px 0;
   box-sizing: border-box,;
-  background-color: $primary;
+  background-color: var(--body-fg);
   border-radius: 50px;
   &_header {
     width: 100%;
@@ -22,7 +22,7 @@
   &_bar {
     width: 50px;
     height: 7px;
-    background: $text-color;
+    background: var(--decor);
     position: absolute;
     margin: 15px 50px 0 0;
 
@@ -38,7 +38,7 @@
   }
 
   &_container {
-    background-color: $text-color;
+    background-color: var(--decor);
     width: 100%;
     min-height: 230px;
     display: flex;
@@ -51,7 +51,7 @@
       height: 9px;
       width: 69px;
       border-radius: 18px;
-      background-color: $accent-color;
+      background-color:  var(--accent);
       margin-bottom: 15px;
     }
   }
@@ -61,7 +61,7 @@
   }
 
   &_text {
-    color: $bg-color;
+    color: var( --text-alternative);
     font-size: 1.1rem;
     letter-spacing: 0.22px;
     text-align: center;
