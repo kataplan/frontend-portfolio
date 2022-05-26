@@ -1,0 +1,12 @@
+
+<section class="slider">
+  <button @click="plusSlides(-1)">Menos</button>
+  <div class="slider_container">
+    <div v-for="image in images" class="slider_fade slider_slide">
+      <img :src="image" alt="imagen" class="slider_images">   
+    </div>
+  </div>
+  <button @click="plusSlides(1)">Mas</button>
+
+</section>
+

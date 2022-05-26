@@ -1,6 +1,6 @@
 
 export default {
-  name: 'image-slider',
+  name: 'slider',
   components: {},
   props: {images:Array},
   data () {
@@ -21,7 +21,7 @@ export default {
     },
     showSlides(n) {
       let i;
-      let slides = document.getElementsByClassName("image-slider_slide");
+      let slides = document.getElementsByClassName("slider_slide");
       if (n > slides.length) {this.slideIndex = 1}
       if (n < 1) {this.slideIndex = slides.length}
       for (i = 0; i < slides.length; i++) {
