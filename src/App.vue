@@ -1,5 +1,6 @@
 <template>
   <section>
+    <Navbar></Navbar>
     <router-view></router-view>
   </section>
 </template>
@@ -9,9 +10,9 @@
 </style>
 
 <script>
-//import Navbar from "@/components/Navbar";
+import Navbar from "@/components/Navbar";
 export default {
   name: "App",
-  components: {  },
+  components: { Navbar },
 };
 </script>

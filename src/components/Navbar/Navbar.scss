@@ -1,46 +1,45 @@
 .navbar {
-  &-top-bar,
-  &-left-bar,
-  &-right-bar {
-    background-color: var(--text-color);
-    position: fixed;
+  background-color: var(--decor);
+  position: fixed;
+  height: 60px;
+  width: 100vw;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-areas: "left center right";
+  opacity: .95;
+
+  &_links {
+    grid-area: center;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    
   }
-  &-top-bar{
-    height: 40px;
-    width: 100vw;
-  }
-  &-left-bar,
-  &-right-bar {
-    height: 100vh;
-    width: 61px;
-  }
-  &-bottom-bar {
-    bottom: 0;
-  }
-  &-right-bar {
-    right: 0;
-  }
-  &-left-bar{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-  }
-  &-button{
-      position: fixed;
-      display: flex;
-      flex-direction: column;
-      height: 80px;
-      align-items: center;
-      transition: all 1s ease-in-out;
-      gap: 10px;
-      &-text{
-        font-size: 1rem;
-        color:var(--accent)
-        
-      }
-  }
-  &-button:hover{
-    text-decoration: solid 1px var(--accent);
+  &_link{
+    color: var(--body-bg);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
 
+  &_link{
+    font-size: 1rem;
+  }
+  &_link-icon{
+    font-size: 1.4rem;
+  }
+  &_social-media{
+    grid-area: right;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    color: var(--body-bg);
+  }
+  &_color-scheme{
+    font-size: 2rem;
+    color: var(--body-bg)
+  }
 }
