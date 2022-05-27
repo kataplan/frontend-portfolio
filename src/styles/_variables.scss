@@ -7,9 +7,10 @@ $off-white:#f1feff;
 $grey: #707070;
 $black: #020202;
 
-:root {
-    --body-bg: #{$off-white};
-    --body-fg: #{$white};
+:root{
+    --transition: background-color .5s;
+    --body-bg: #{$white};
+    --body-fg: #{$off-white};
     --accent: #{$light-blue};
     --link-color: #{$light-blue};
     --text-color: #{$black};
@@ -17,15 +18,38 @@ $black: #020202;
     --decor:#{$light-blue};
   
     @media (prefers-color-scheme: dark) {
-        --body-bg: #{$dark-blue};
-        --body-fg: #{$blue};
+    
+        --body-bg: #{$blue};
+        --body-fg: #{$dark-blue};
         --accent: #{$light-blue};
         --link-color: #{$light-blue};
         --text-color: #{$white};
         --text-alternative:#{$grey};
         --decor:#{$white};
     }
+    
 };
+:root.light {
+    --body-bg: #{$white};
+    --body-fg: #{$off-white};
+    --accent: #{$light-blue};
+    --link-color: #{$light-blue};
+    --text-color: #{$black};
+    --text-alternative:#{$grey};
+    --decor:#{$light-blue};
+}
+:root.dark{
+    --body-bg: #{$blue};
+    --body-fg: #{$dark-blue};
+    --accent: #{$light-blue};
+    --link-color: #{$light-blue};
+    --text-color: #{$white};
+    --text-alternative:#{$grey};
+    --decor:#{$white};
+}
+* {
+    transition: var(--transition);
+  }
   
 
 
