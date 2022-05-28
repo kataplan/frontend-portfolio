@@ -1,6 +1,6 @@
 import { getDownloadURL, ref } from "firebase/storage"
 import { storage } from "@/firebase/init";
-import ImageSlider from "@/components/ImageSlider";
+import ImageSlider from "@/components/Slider";
 export default {
   name: 'proyect-details',
   components: { ImageSlider },
