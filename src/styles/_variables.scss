@@ -3,18 +3,17 @@ $blue: #023047;
 $dark-blue: #012030;
 $light-blue: #7BCCE9;
 $white: #fff;
-$off-white:#f1feff;
 $grey: #707070;
 $black: #020202;
 
 :root{
     --transition: background-color .5s;
     --body-bg: #{$white};
-    --body-fg: #{$off-white};
+    --body-fg: #{$white};
     --accent: #{$light-blue};
     --link-color: #{$light-blue};
-    --text-color: #{$black};
-    --text-alternative:#{$grey};
+    --text-color: #{$dark-blue};
+    --text-alternative:#{$blue};
     --decor:#{$light-blue};
   
     @media (prefers-color-scheme: dark) {
@@ -31,11 +30,11 @@ $black: #020202;
 };
 :root.light {
     --body-bg: #{$white};
-    --body-fg: #{$off-white};
+    --body-fg: #{$white};
     --accent: #{$light-blue};
     --link-color: #{$light-blue};
-    --text-color: #{$black};
-    --text-alternative:#{$grey};
+    --text-color: #{$dark-blue};
+    --text-alternative:#{$blue};
     --decor:#{$light-blue};
 }
 :root.dark{
