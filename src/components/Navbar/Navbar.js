@@ -37,7 +37,6 @@ export default {
         if (this.currentColor == "light") { this.currentColor = "dark" }
       }
       document.documentElement.className = this.currentColor;
-      console.log(this.currentColor)
     }
   }
 }
