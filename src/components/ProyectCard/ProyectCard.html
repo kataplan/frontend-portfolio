@@ -1,9 +1,7 @@
 <section class="proyect-card" @click="open = true">
   <div class="proyect-card_thumbnail_container">
-    <img v-if="isLoaded" :src="thumbnail" class="proyect-card_thumbnail" :alt="proyect.id" />
-    <div v-else>
-      <div class="spin"></div>
-    </div>
+    <img :src="proyect.imageThumbnail" class="proyect-card_thumbnail" :alt="proyect.id" />
+    
   </div>
   <h1 class="proyect-card_title">{{proyect.title}}</h1>
   <p class="proyect-card_subtitle">{{proyect.description}}</p>

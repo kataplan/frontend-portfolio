@@ -5,7 +5,7 @@
     box-sizing: border-box;
     padding: 25px 20px 30px;
     border-radius: 10px;
-    border: 2px var(--accent) solid;
+    border: 3px var(--accent) solid;
     cursor: pointer;
 
     &_title {
@@ -19,13 +19,15 @@
     &_thumbnail {
         width: 85%;
         transition: all 1s ease-in-out;
-
+        
         &_container {
+            background-color: $dark-blue;
             height: 180px;
             min-height: fit-content;
             display: flex;
             justify-content: center;
             align-items: center;
+            border-radius: 10px ;
         }
     }
    
@@ -33,7 +35,7 @@
     &_close {
         font-size: 1.2rem;
         font-weight: 800;
-        transform: translateY(15px);
+        transform: translateY(33px);
         background-color: var(--body-fg);
         color: var(--accent);
         border-radius: 100%;
