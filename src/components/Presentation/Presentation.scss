@@ -14,10 +14,15 @@
   &_message {
     width: 50%;
   }
+  &_hello{
+    font-size: 7rem;
+    color: var(--accent);
+    letter-spacing: 2px;
+  }
   &_bar {
     width: 50px;
     height: 7px;
-    background: var(--text-color);
+    background: var(--decor);
     margin: 15px 0 0 0;
     border-radius: 5px;
     animation: bar 3s linear 2s infinite alternate;
@@ -47,8 +52,9 @@
   }
   @media (max-width: 980px) {
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 20px;
+    padding-top: 50px;
     &_message {
       width: 100%;
       display: flex;
