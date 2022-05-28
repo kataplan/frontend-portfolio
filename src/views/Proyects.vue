@@ -1,34 +1,99 @@
 <template>
   <section class="proyects">
     <h1 class="section-title">Mis Proyectos</h1>
-    <p>Aquí se muestran los proyectos que he realizado y he sido parte.</p>
+    <p class="proyects_text">Aquí se muestran los proyectos y trabajos que he realizado y he sido parte.</p>
+    <div class="proyects_search-container">
+      <input type="text" @keyup="onChange($event)" class="proyects_search" placeholder="Realiza una búsqueda"/>
+      <i class="fa-solid fa-magnifying-glass proyects_search-icon"></i>
+    </div>
+    
     <div class="proyects_grid">
       <TransitionGroup name="fade">
-        <ProyectCard v-for="(item, index) in proyects" :key="index" :proyect="item"></ProyectCard>
+        <ProyectCard v-for="(item, index) in filteredProyects" :key="index" :proyect="item"></ProyectCard>
       </TransitionGroup>
     </div>
   </section>
 </template>
 
 <script>
-import { db } from "@/firebase/init";
+import { db,storage } from "@/firebase/init";
+import { ref, getDownloadURL } from "firebase/storage";
 import { collection, getDocs } from "firebase/firestore";
 import ProyectCard from "@/components/ProyectCard";
+
 export default {
   name: "Home",
   components: { ProyectCard },
+
   data() {
-    return { proyects: [] };
+    return { proyects: [], filteredProyects:[]};
   },
+
   methods: {
+    onChange(e){
+      const search = e.target.value.toLowerCase();
+      this.filteredProyects = this.proyects.filter((item)=> {
+        if(item.title.toLowerCase().includes(search)) {
+          return item;
+        }else{
+          let isIncluded = false
+          item.stack.forEach((stck)=>{
+            if(stck.toLowerCase().includes(search)) {
+              isIncluded = true;
+            }
+          })
+          if(isIncluded){
+            return item
+          }
+        }
+      })
+      this.sortArray(this.filteredProyects)
+    },
+
     async getProyects() {
       const querySnapshot = await getDocs(collection(db, "Proyects"));
       querySnapshot.forEach((doc) => {
         let proyect = doc.data();
         proyect.id = doc.id;
-
-        this.proyects.push(proyect);
+        this.getImages(proyect);
       });
+    },
+    async getImages(proyect) {
+      this.handleThumbnail("thumbnails/" + proyect.thumbnail._key.path.segments[8],proyect)
+    },
+    sortArray(array){
+      array.sort((a,b) => {
+        let fa = a.title.toLowerCase(),
+        fb = b.title.toLowerCase();
+        if (fa < fb) {return -1;}
+        if (fa > fb) {return 1;}
+        return 0;
+      })
+      
+    },
+    handleThumbnail(reference,proyect) {
+      const gsReference = ref(storage, reference);
+      getDownloadURL(gsReference)
+        .then((url) => {
+          proyect.imageThumbnail = url;
+          this.proyects.push(proyect);
+          this.filteredProyects.push(proyect);
+          this.sortArray(this.filteredProyects)
+          })
+        .catch((error) => {
+          switch (error.code) {
+            case "storage/object-not-found":
+              break;
+            case "storage/unauthorized":
+              break;
+            case "storage/canceled":
+              // User canceled  upload
+              break;
+            case "storage/unknown":
+              break;
+          }
+        });
+
     },
   },
   mounted() {
@@ -50,6 +115,36 @@ export default {
     justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(250px, 0.5fr));
     grid-gap: 15px;
+    box-sizing: border-box;
+
+  }
+  &_text{
+    font-size: 1rem;
+  }
+  &_search-container{
+    padding: 5px 15px;
+    border: 3px solid var(--accent);
+    border-radius: 20px;
+    width: 20%;
+    min-width: 300px;
+    margin-top: 25px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--body-fg);
+    
+  }
+  &_search{
+    background: transparent;
+    border: none;
+    outline: none;
+    color:var(--text-color);
+    height: 30px;
+    font-size: 1.1rem;
+  }
+  &_search-icon{
+    color: var(--decor)
   }
 }
 </style>
