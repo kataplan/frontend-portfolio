@@ -8,7 +8,7 @@
       <i class="fa-solid fa-magnifying-glass proyects_search-icon"></i>
     </div>
     
-    <div class="proyects_grid">
+    <div class="proyects_display">
       <TransitionGroup name="fade">
         <ProyectCard v-for="(item, index) in filteredProyects" :key="index" :proyect="item"></ProyectCard>
       </TransitionGroup>
@@ -110,7 +110,7 @@ export default {
   height: fit-content;
   padding: 84px 5%;
   box-sizing: border-box;
-  &_grid {
+  &_display {
     margin-top: 50px;
     display: grid;
     justify-content: center;
@@ -125,10 +125,30 @@ export default {
   }
   &_input-container{
       width: 20%;
-    min-width: 300px;
+      min-width: 300px;
   }
   &_search-icon{
     color: var(--decor)
   }
+  @media (max-width: 980px) {
+      padding: 10px 5% 84px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &_display{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        max-width: 600px;
+      }
+      &_text{
+        width: 90%;
+        text-align: center;
+        margin-top: 0.9rem;
+      }
+      &_input-container{
+        width: 90%;
+      }
+    }
 }
 </style>

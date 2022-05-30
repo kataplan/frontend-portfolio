@@ -49,6 +49,7 @@ export default {
       margin-top: 10px;
       width: 80%;
       text-align: center;
+      font-size: 1rem;
     }
     &_form-container{
       display: flex;
@@ -56,7 +57,7 @@ export default {
       width: 100%;
     }
     &_form{
-      margin-top: 40px;
+      margin-top: 20px;
       width: 80%;
       display: flex;
       flex-direction: column;
@@ -64,7 +65,6 @@ export default {
     }
     &_first-row{
       display: flex;
-      flex-wrap: wrap;
       gap:15px;
       justify-content: space-between;
       width: 100%;
@@ -86,6 +86,7 @@ export default {
       max-height: 100%;
       padding: 10px 5px;
       box-sizing: border-box;
+      resize: none;
     }
     &_area-label{
       transform-origin: 0 0;
@@ -105,6 +106,12 @@ export default {
       color: transparent !important;
       user-select: none !important;
       }
+    @media (max-width: 980px) {
+      padding: 10px 5% 84px;
+      &_first-row{
+        flex-direction: column;
+      }
+    }
   }
   
 </style>
