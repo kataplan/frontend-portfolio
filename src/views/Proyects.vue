@@ -2,8 +2,9 @@
   <section class="proyects">
     <h1 class="section-title">Mis Proyectos</h1>
     <p class="proyects_text">Aquí se muestran los proyectos y trabajos que he realizado y he sido parte.</p>
-    <div class="proyects_search-container">
-      <input type="text" @keyup="onChange($event)" class="proyects_search" placeholder="Realiza una búsqueda"/>
+    <div class="input-container proyects_input-container">
+      <input type="text" @keyup="onChange($event)" class="input" placeholder="Realiza una búsqueda"/>
+      <span class="label">Realiza una búsqueda</span>
       <i class="fa-solid fa-magnifying-glass proyects_search-icon"></i>
     </div>
     
@@ -120,28 +121,11 @@ export default {
   }
   &_text{
     font-size: 1rem;
+    margin-bottom:2rem ;
   }
-  &_search-container{
-    padding: 5px 15px;
-    border: 3px solid var(--accent);
-    border-radius: 20px;
-    width: 20%;
+  &_input-container{
+      width: 20%;
     min-width: 300px;
-    margin-top: 25px;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: var(--body-fg);
-    
-  }
-  &_search{
-    background: transparent;
-    border: none;
-    outline: none;
-    color:var(--text-color);
-    height: 30px;
-    font-size: 1.1rem;
   }
   &_search-icon{
     color: var(--decor)
