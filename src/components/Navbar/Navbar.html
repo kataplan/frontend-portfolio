@@ -1,8 +1,6 @@
 <section class="navbar">
-
-
   <div class="navbar_links">
-    <router-link to="/" class="navbar_link">
+    <router-link to="/" class="navbar_link" id="home">
       <i class="fa-solid fa-house-chimney navbar_link-icon"></i>
       <div class="navbar_link-text">Home</div>
     </router-link>
@@ -10,7 +8,7 @@
       <i class="fa-solid fa-briefcase navbar_link-icon"></i>
       <div class="navbar_link-text">Proyectos</div>
     </router-link>
-    <router-link to="/proyectos" class="navbar_link">
+    <router-link to="/contactame" class="navbar_link">
       <i class="fa-solid fa-envelope navbar_link-icon"></i>
       <div class="navbar_link-text">Contáctame</div>
     </router-link>
@@ -20,16 +18,13 @@
     </a>
   </div>
   <div class="navbar_social-media">
-
     <button @click="changeScheme()">
       <div v-if="currentColor === 'light'" class="navbar_color-scheme">
         <i class="fa-solid fa-sun"></i>
       </div>
-      <div v-else  class="navbar_color-scheme">
+      <div v-else class="navbar_color-scheme">
         <i class="fa-solid fa-moon"></i>
       </div>
-
-
     </button>
   </div>
 

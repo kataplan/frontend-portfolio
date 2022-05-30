@@ -44,6 +44,10 @@
     color: var(--body-bg)
   }
   @media (max-width: 980px) {
+    bottom: 0;
+    height: 65px;
+    grid-template-columns: 1fr 3fr 1fr;
+
     &_link-text{
       display: none;
     }
@@ -51,4 +55,7 @@
       font-size: 1.8rem;
     }
   }
+}
+.router-link-active{
+  color:var(--text-alternative)
 }
