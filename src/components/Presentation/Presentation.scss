@@ -27,7 +27,6 @@
     border-radius: 5px;
     animation: bar 3s linear 2s infinite alternate;
   }
-
   &_circle {
     border-radius: 100% 100% 100% 100% / 100% 100% 100% 100%;
     animation: profile 4.5s linear 2s 1 alternate;
@@ -38,7 +37,6 @@
     overflow: hidden;
     transition: 4s all;
   }
-
   &_text {
     margin-top: 45px;
     width: 70%;
@@ -63,8 +61,12 @@
       text-align: center;
     }
     &_circle{
-      width: 250px;
-      height: 250px;
+      width: 150px;
+      height: 150px;
+    }
+     &_hello{
+      font-size: 5rem;
+
     }
   }
 }
