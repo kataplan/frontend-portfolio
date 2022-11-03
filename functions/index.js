@@ -1,37 +1,34 @@
-const functions = require('firebase-functions');
-const admin = require('firebase-admin');
+const functions = require("firebase-functions");
 const nodemailer = require('nodemailer');
 
-//Initializing Firebase Admin SDK
-admin.initializeApp();
-
-//Creating Nodemailer transporter using your Mailtrap SMTP details
-const transporter = nodemailer.createTransport({
-    host: "smtp.mailtrap.io",
-    port: 2525,
+const transport = nodemailer.createTransport({
+    service: 'Gmail',
     auth: {
-      user: "8b41f2202e46dd",
-      pass: "fbf6171e7e3004"
-    }
-  });
+        user: process.env.MAIL_USER,
+        pass: process.env.SECRET_PASS,
+    },
+});
 
-//Creating a Firebase Cloud Function
-exports.emailSender = functions.https.onRequest((req, res) => {
+const sendContactForm = (form) => {
+    return transport
+        .sendMail({
+            subject: "👾🤖Nuevo mensaje de tu formulario de contacto😎",
+            bcc: [process.env.MAIL_USER],
+            html: `<h3>¡Tienes un nuevo mensaje!</h3>
+			<p> Nombre: ${form.name} </p>
+			<p> Correo: ${form.email} </p>
+			<p>Mensaje: ${form.message} </p>
+			`,
+        })
+        .then((r) => {
+            console.log("Accepted => ", r.accepted)
+            console.log("Rejected => ", r.rejected)
+        })
+        .catch((e) => console.log(e))
+}
 
-            //Defining mailOptions
-            const mailOptions = {
-            from: 'dcatalanmarchese@gmail.com', //Adding sender's email
-            to: req.query.dest, //Getting recipient's email by query string
-            subject: 'Email Sent via Firebase', //Email subject
-            html: '<b>Sending emails with Firebase is easy!</b>' //Email content in HTML
-        };
-
-        //Returning result
-        return transporter.sendMail(mailOptions, (err) => {
-            if(err){
-                return res.send(err.toString());
-            }
-            return res.send('Email sent succesfully');
-        });
-
+exports.contactForm = functions.https.onRequest((req, res) => {
+    if (req.body.secret !== 'firebaseIsCool') return res.send('Missing secret');
+    sendContactForm(req.body);
+    res.send("Sending email...");
 });

@@ -7,18 +7,19 @@
         
         <div class="contact_first-row" >
           <div class="input-container contact_input-container">
-            <input type="text" class="input" placeholder="a">
+            <input type="text" class="input" placeholder="a" v-model="name">
             <span class="label">Nombre Completo</span>
           </div>
           <div class="input-container contact_input-container">
-            <input type="email" class="input" placeholder="a">
+            <input type="email" class="input" placeholder="a" v-model="email">
             <span class="label">Email</span>
           </div>
         </div>
         <div class="input-container contact_textarea-container">
-          <textarea type="text" class="input contact_textarea" placeholder="a"></textarea>
+          <textarea type="text" class="input contact_textarea" placeholder="a" v-model="message"></textarea>
           <span class="contact_area-label">Deja tu mensaje</span>
         </div>
+        <button v-on:click="doStuff()">Do stuff</button>  
       </form>
    
     </div>
@@ -32,6 +33,38 @@ export default {
   components: {
     
   },
+  data() {
+    return {
+      email:"",
+      name:"",
+      message:""
+
+    }
+  },
+  methods: {
+    async submit (event) {
+      event.preventDefault();
+      const form = {
+        name: this.name,
+        email: this.email,
+        message: this.message,
+      };
+        const result = await fetch(
+        '/contact_form',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ ...form, secret: 'firebaseIsCool' }),
+        }
+      );
+      if (result.ok)
+      alert("Pronto nos pondremos en contacto contigo!");
+      console.log(form)
+      
+    }
+  }
 };
 </script>
 
