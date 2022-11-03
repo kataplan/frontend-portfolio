@@ -3,7 +3,7 @@
     <h1 class="section-title">Conversemos</h1>
     <div class="contact_text">¡Hola! Si te interesó algo que viste, quieres darme feedback o simplemente quieres chatear, mándame un mensaje acá abajo y te contactaré a penas pueda.</div>
     <div class="contact_form-container">
-      <form class="contact_form">
+      <form class="contact_form" v-on:submit.prevent=submit()>
         
         <div class="contact_first-row" >
           <div class="input-container contact_input-container">
@@ -19,7 +19,7 @@
           <textarea type="text" class="input contact_textarea" placeholder="a" v-model="message"></textarea>
           <span class="contact_area-label">Deja tu mensaje</span>
         </div>
-        <button v-on:click="doStuff()">Do stuff</button>  
+        <button type="submit" class="contact_btn">Envía</button>  
       </form>
    
     </div>
@@ -42,13 +42,13 @@ export default {
     }
   },
   methods: {
-    async submit (event) {
-      event.preventDefault();
+    async submit () {
       const form = {
         name: this.name,
         email: this.email,
         message: this.message,
       };
+      console.log(form)
         const result = await fetch(
         '/contact_form',
         {
@@ -135,6 +135,15 @@ export default {
       color: var(--decor);
       font-size: 0.9rem;
     }
+    &_btn{
+      margin-top: 20px;
+      background-color: var(--accent);
+      color: var(--text-color);
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 1.5rem;
+      padding: 10px 20px;
+    }
     &_textarea::placeholder {
       color: transparent !important;
       user-select: none !important;
@@ -145,6 +154,7 @@ export default {
         flex-direction: column;
       }
     }
+
   }
   
 </style>
