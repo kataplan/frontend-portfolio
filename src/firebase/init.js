@@ -11,7 +11,7 @@ import {
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAQBXVZPHoQtWJUzTgQdwGsYC5iDyzOsrM",
+  apiKey: process.env.FIREBASE_TOKEN,
   authDomain: "portafolio-backend-61b0e.firebaseapp.com",
   projectId: "portafolio-backend-61b0e",
   storageBucket: "portafolio-backend-61b0e.appspot.com",
