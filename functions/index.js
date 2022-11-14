@@ -1,4 +1,4 @@
-const functions = require("firebase-functions");
+import { functions } from "firebase/functions";"../src/firebase"
 const nodemailer = require('nodemailer');
 
 const transport = nodemailer.createTransport({

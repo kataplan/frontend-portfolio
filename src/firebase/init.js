@@ -8,6 +8,7 @@ import {
 import {
   getStorage
 } from "firebase/storage";
+import { getFunctions } from 'firebase/functions';
 
 
 const firebaseConfig = {
@@ -24,3 +25,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const storage = getStorage();
 export const db = getFirestore(app);
+export const functions = getFunctions(app);

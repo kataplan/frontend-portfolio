@@ -27,8 +27,11 @@
 </template>
 
 <script>
+import { db } from '../firebase/init'
+import {collection, doc, setDoc } from "firebase/firestore"; 
 
 export default {
+  
   name: "Contact",
   components: {
     
@@ -43,26 +46,18 @@ export default {
   },
   methods: {
     async submit () {
-      const form = {
+      const userMessage = {
         name: this.name,
         email: this.email,
         message: this.message,
       };
-      console.log(form)
-        const result = await fetch(
-        '/contact_form',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ ...form, secret: 'firebaseIsCool' }),
-        }
-      );
-      if (result.ok)
-      alert("Pronto nos pondremos en contacto contigo!");
-      console.log(form)
-      
+      try {
+        const newMessagRef = doc(collection(db, "formMessages"));
+        await setDoc(newMessagRef, userMessage);
+        
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
     }
   }
 };
