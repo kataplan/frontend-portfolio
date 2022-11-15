@@ -186,7 +186,7 @@ svg {
   position: relative;
 
   padding: 5px 15px;
-  border: 3px solid var(--text-color);
+  border: 3px solid var(--decor);
   border-radius: 20px;
   box-sizing: border-box;
   display: flex;
