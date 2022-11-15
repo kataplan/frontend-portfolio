@@ -75,3 +75,9 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
 }
+@media (max-width: 980px) {
+  .section-title{
+    text-align: center;
+    margin-top: 20px;
+  }
+}
