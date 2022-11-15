@@ -5,17 +5,6 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "/contact_form",
-        "function": "contactForm"
-      },
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
     ]
   }
-
 }
