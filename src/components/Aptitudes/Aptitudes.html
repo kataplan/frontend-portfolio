@@ -7,57 +7,51 @@
   </div>
 
   <div class="aptitudes_grid">
-    <div class="aptitudes_container blob-1">
-      <div>
-        <img
-          src="./../../assets/images/emoji_1.png"
-          alt="emoji_1"
-          class="aptitudes_emoji"
-        />
+    <transition appear @before-enter="beforeEnter" @enter="enter">
+      <div class="aptitudes_container blob-1" :data-index=1>
+        <div>
+          <img src="./../../assets/images/emoji_1.png" alt="emoji_1" class="aptitudes_emoji" />
+        </div>
+        <div class="aptitudes_container_bar"></div>
+        <div class="aptitudes_text">
+          Me gusta trabajar en equipo para obtener mejores resultados
+        </div>
       </div>
-      <div class="aptitudes_container_bar"></div>
-      <div class="aptitudes_text">
-        Me gusta trabajar en equipo para obtener mejores resultados
+    </transition>
+    <transition appear @before-enter="beforeEnter" @enter="enter">
+      <div class="aptitudes_container blob-2" :data-index=2>
+        <div>
+          <img src="./../../assets/images/emoji_2.png" alt="emoji_2" class="aptitudes_emoji" />
+        </div>
+        <div class="aptitudes_container_bar"></div>
+        <div class="aptitudes_text">
+          Soy disciplinado y constante para cumplir mis metas
+        </div>
       </div>
-    </div>
-    <div class="aptitudes_container blob-2">
-      <div>
-        <img
-          src="./../../assets/images/emoji_2.png"
-          alt="emoji_2"
-          class="aptitudes_emoji"
-        />
+    </transition>
+    <transition appear @before-enter="beforeEnter" @enter="enter">
+      <div class="aptitudes_container blob-1" :data-index=3>
+        <div>
+          <img src="./../../assets/images/emoji_3.png" alt="emoji_3" class="aptitudes_emoji" />
+        </div>
+        <div class="aptitudes_container_bar"></div>
+        <div class="aptitudes_text">
+          Poseo una buena comunicación con mis pares
+        </div>
       </div>
-      <div class="aptitudes_container_bar"></div>
-      <div class="aptitudes_text">
-        Soy disciplinado y constante para cumplir mis metas
+     
+    </transition>
+    <transition appear @before-enter="beforeEnter" @enter="enter">
+      <div class="aptitudes_container blob-2" :data-index=4>
+        <div>
+          <img src="./../../assets/images/emoji_4.png" alt="emoji_4" class="aptitudes_emoji" />
+        </div>
+        <div class="aptitudes_container_bar"></div>
+        <div class="aptitudes_text">
+          Siempre estoy dispuesto a recibir feedback para la mejora de mi trabajo
+        </div>
       </div>
-    </div>
-    <div class="aptitudes_container blob-1">
-      <div>
-        <img
-          src="./../../assets/images/emoji_3.png"
-          alt="emoji_3"
-          class="aptitudes_emoji"
-        />
-      </div>
-      <div class="aptitudes_container_bar"></div>
-      <div class="aptitudes_text">
-        Poseo una buena comunicación con mis pares
-      </div>
-    </div>
-    <div class="aptitudes_container blob-2">
-      <div>
-        <img
-          src="./../../assets/images/emoji_4.png"
-          alt="emoji_4"
-          class="aptitudes_emoji"
-        />
-      </div>
-      <div class="aptitudes_container_bar"></div>
-      <div class="aptitudes_text">
-        Siempre estoy dispuesto a recibir feedback para la mejora de mi trabajo
-      </div>
-    </div>
+    </transition>
+    
   </div>
 </section>
