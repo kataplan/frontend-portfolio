@@ -128,7 +128,6 @@ export default {
     }
     else{
       this.getProyects();
-      print("hola")
     }
   },
 };
