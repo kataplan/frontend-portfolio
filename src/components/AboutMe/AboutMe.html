@@ -7,29 +7,24 @@
   </div>
   <div class="about-me_content">
     <div class="about-me_circle">
-      <img
-        src="@/assets/images/rugby.jpg"
-        alt="me-rugby"
-        class="about-me_profile-image"
-      />
+      <img src="@/assets/images/rugby.jpg" alt="me-rugby" class="about-me_profile-image" />
     </div>
 
-    <ul class="about-me_list">
-      <li class="about-me_list_item">
+    <transition-group tag="ul" class="about-me_list" appear @before-enter="beforeEnter" @enter="enter">
+      <li class="about-me_list_item" :data-index=1 :key=1>
         <div class="about-me_list_item_arrow">></div>
         <div class="about-me_list_item_text">
           Actualmente, soy estudiante de quinto año de
           <span class="about-me_list_item_bold">
             Ingeniería Civil Informática de la Pontificia Universidad Católica
-            de Valparaíso.</span
-          >
+            de Valparaíso.</span>
           En el ámbito profesional busco desarrollarme en el área de la
           ingeniería web e idealmente como full stack developer y seguidamente
           especializarme en el desarrollo de software, pues estoy seguro de que
           es un área desafiante e imprescindible para la sociedad actual.
         </div>
       </li>
-      <li class="about-me_list_item">
+      <li class="about-me_list_item" :data-index=2 :key=2>
         <div class="about-me_list_item_arrow">></div>
         <div class="about-me_list_item_text">
           Soy <span class="about-me_list_item_bold"> jugador de Rugby</span>
@@ -37,16 +32,16 @@
           participante del torneo de más alto nivel en Chile.
         </div>
       </li>
-      <li class="about-me_list_item">
+      <li class="about-me_list_item" :data-index=3 :key=3>
         <div class="about-me_list_item_arrow">></div>
         <div class="about-me_list_item_text">
-          Tengo facilidades para los idiomas, además de mi idioma materno, puedo
+          Tengo facilidades para los idiomas, además de mi idioma materno, sé
           leer y hablar
           <span class="about-me_list_item_bold">inglés e italiano</span>, lo que
           me facilita la comunicación con los demás.
         </div>
       </li>
-      <li class="about-me_list_item">
+      <li class="about-me_list_item" :data-index=4 :key=4>
         <div class="about-me_list_item_arrow">></div>
         <div class="about-me_list_item_text">
           Me motivan los proyectos serios y que tengan un alto impacto en la
@@ -55,13 +50,13 @@
           prueba mis conocimientos.
         </div>
       </li>
-      <div class="about-me_download">
+      <div class="about-me_download"  :key=4 :data-index=5>
         <div>Si te interesó algo te invito a</div>
         <button v-on:click="handleDownload()" class="about-me_download_btn">
           Ver mi curriculum
         </button>
       </div>
-    </ul>
+    </transition-group>
   </div>
 
 </section>
