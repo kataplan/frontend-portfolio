@@ -35,7 +35,7 @@
 
             <span class="contact_error" v-if="v$.message.$error">{{ v$.message.$errors[0].$message }}</span>
           </div>
-          <button type="submit" v-on:click=submit() class="contact_btn">Envía</button>
+          <button type="submit" v-on:click=submit() class="contact_btn">Enviar</button>
         </form>
       </div>
     </div>
