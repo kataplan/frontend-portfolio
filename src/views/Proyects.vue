@@ -10,8 +10,8 @@
     </div>
 
     <div class="proyects_display">
-      <TransitionGroup name="fade">
-        <ProyectCard v-for="(item, index) in filteredProyects" :key="index" :proyect="item"></ProyectCard>
+      <TransitionGroup name="fade" appear @before-enter="beforeEnter" @enter="enter">
+        <ProyectCard v-for="(item, index) in filteredProyects" :key="index" :proyect="item" :data-index="index"></ProyectCard>
       </TransitionGroup>
     </div>
   </section>
@@ -22,11 +22,29 @@ import { db, storage } from "@/firebase/init";
 import { ref, getDownloadURL } from "firebase/storage";
 import { collection, getDocs } from "firebase/firestore";
 import ProyectCard from "@/components/ProyectCard";
+import gsap from 'gsap'
 
 export default {
   name: "Home",
   components: { ProyectCard },
-
+  setup(){
+    
+    const beforeEnter =(el) =>{
+      el.style.transform = 'translateY(30px)'
+      el.style.opacity = 0
+    }
+    const enter =(el,done) =>{
+      gsap.to(el,{
+        duration:1,
+        y:0,
+        opacity:1,
+        ease: 'Power0.out',
+        onComplete:done,
+        delay: el.dataset.index*0.35
+      })
+    }
+    return {beforeEnter, enter}
+  },
   data() {
     return { proyects: [], filteredProyects: [] };
   },
@@ -117,6 +135,8 @@ export default {
 </script>
 
 <style lang="scss">
+
+
 .group {
   position: relative;
 
@@ -131,8 +151,6 @@ export default {
   height: 50px;
 
 }
-
-
 
 .input {
   font-size: 18px;
