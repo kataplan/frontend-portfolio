@@ -53,12 +53,14 @@ export default {
     },
 
     async getProyects() {
+
       const querySnapshot = await getDocs(collection(db, "Proyects"));
       querySnapshot.forEach((doc) => {
         let proyect = doc.data();
         proyect.id = doc.id;
         this.getImages(proyect);
       });
+
     },
     async getImages(proyect) {
       this.handleThumbnail("thumbnails/" + proyect.thumbnail._key.path.segments[8], proyect)
@@ -81,6 +83,8 @@ export default {
           this.proyects.push(proyect);
           this.filteredProyects.push(proyect);
           this.sortArray(this.filteredProyects)
+          localStorage.setItem("proyects", JSON.stringify(this.filteredProyects))
+
         })
         .catch((error) => {
           switch (error.code) {
@@ -99,7 +103,15 @@ export default {
     },
   },
   mounted() {
-    this.getProyects();
+    const storage = localStorage.getItem("proyects")
+    if(storage){
+      this.filteredProyects = JSON.parse(storage)
+      this.proyects = JSON.parse(storage)
+    }
+    else{
+      this.getProyects();
+      print("hola")
+    }
   },
 };
 </script>
@@ -154,6 +166,7 @@ label {
   font-size: 14px;
   color: var(--accent);
 }
+
 .proyects {
   width: 100%;
   min-height: 100vh;
