@@ -35,13 +35,16 @@
 
             <span class="contact_error" v-if="v$.message.$error">{{ v$.message.$errors[0].$message }}</span>
           </div>
-          <button type="submit" v-on:click=submit() class="contact_btn">Enviar</button>
+          <VueRecaptcha :sitekey=siteKey :load-recaptcha-script="true" @verify="handleSuccess" @error="handleError">
+            <button type="submit" v-on:click=submit() class="contact_btn" data-sitekey="reCAPTCHA_site_key"
+              data-callback='onSubmit' data-action='submit'>Enviar</button>
+          </VueRecaptcha>
         </form>
       </div>
     </div>
     <div v-else>
       <h1 class="section-title">Gracias por tu mensaje!</h1>
-      <div class="contact_text">Estaré contactándome contigo</div>
+      <h4 class="contact_text">Estaré contactándome contigo a la brevedad.</h4>
       <div class="frame">
         <div class="plane-container">
           <a href="http://customer.io/" target="_blank">
@@ -111,14 +114,13 @@ import { db } from '../firebase/init'
 import { collection, doc, setDoc } from "firebase/firestore";
 import { useVuelidate } from '@vuelidate/core'
 import { required, email, helpers } from '@vuelidate/validators'
-
+import { computed } from 'vue';
+import { VueRecaptcha } from 'vue-recaptcha';
 
 export default {
 
   name: "Contact",
-  components: {
-
-  },
+  components: { VueRecaptcha },
 
   data() {
     return {
@@ -143,6 +145,25 @@ export default {
       }
     }
   },
+  setup() {
+    const siteKey = computed(() => {
+      return '6Ldo2MweAAAAAMjgZr_Kv6UriWHWXKB-GidK-C18';
+    });
+
+    const handleError = () => {
+      
+    };
+
+    const handleSuccess = () => {
+      this.submit()
+    };
+
+    return {
+      handleSuccess,
+      handleError,
+      siteKey,
+    };
+  },
   methods: {
     async submit() {
       this.v$.$validate()
@@ -152,18 +173,15 @@ export default {
           name: this.name,
           email: this.email,
           message: this.message,
+          
         };
         try {
           const newMessagRef = doc(collection(db, "formMessages"));
-          await setDoc(newMessagRef, userMessage)
-            ;
-
-
+          await setDoc(newMessagRef, userMessage);
         } catch (e) {
           console.error("Error adding document: ", e);
         }
       }
-
     }
   }
 };
@@ -175,6 +193,7 @@ svg {
   height: auto;
   display: block;
 }
+
 * {
   box-sizing: border-box;
 }
@@ -250,11 +269,13 @@ label {
     color: var(--text-color);
     margin-top: 10px;
     width: 80%;
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
-  &_form_visible{
+
+  &_form_visible {
     max-width: 1200px;
   }
+
   &_form-container {
     display: flex;
     width: 100%;
@@ -353,7 +374,9 @@ label {
     &_form-container {
       justify-content: center;
     }
+    .grecaptcha-badge{
+      transform: translateY(-60px);
+    }
   }
-
 }
 </style>
