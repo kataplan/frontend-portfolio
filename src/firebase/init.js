@@ -2,7 +2,6 @@ import {initializeApp} from "firebase/app";
 import {getFirestore,} from "firebase/firestore";
 import { getStorage} from "firebase/storage";
 import { getFunctions } from 'firebase/functions';
-import { ReCaptchaV3Provider, initializeAppCheck } from "firebase/app-check";
 
 
 
@@ -21,4 +20,3 @@ const app = initializeApp(firebaseConfig);
 export const storage = getStorage();
 export const db = getFirestore(app);
 export const functions = getFunctions(app);
-export const appCheck = initializeAppCheck(app, { provider: new ReCaptchaV3Provider('6Ldo2MweAAAAAMjgZr_Kv6UriWHWXKB-GidK-C18') });
