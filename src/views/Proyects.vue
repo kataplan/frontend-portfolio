@@ -1,7 +1,7 @@
 <template>
   <section class="proyects">
     <h1 class="section-title">Mis Proyectos</h1>
-    <p class="proyects_text">Aquí se muestran los proyectos y trabajos que he realizado y he sido parte.</p>
+    <p class="proyects_text">Aquí se muestran los proyectos y trabajos que he realizado y he sido parte.<br/>Realiza una búsqueda para filtrar los proyectos, esta puede ser por nombre o tecnología utilizada.</p>
     <div class="input-container proyects_input-container group ">
       <input type="text" @keyup="onChange($event)" class="input" placeholder="Realiza una búsqueda" required />
       <label for="input" class="control-label">Escriba aquí</label>
@@ -195,7 +195,7 @@ label {
     margin-top: 50px;
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 0.5fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 0.5fr));
     grid-gap: 15px;
     box-sizing: border-box;
     align-items: center;
