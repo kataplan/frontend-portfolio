@@ -20,6 +20,7 @@
     "firebase-functions": "^4.0.2",
     "gsap": "^3.11.3",
     "vue": "^3.2.36",
+    "vue-recaptcha": "^2.0.3",
     "vue-router": "^4.0.15",
     "vuex": "^4.0.0-0"
   },
