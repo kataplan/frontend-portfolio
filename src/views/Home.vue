@@ -9,9 +9,9 @@
     <transition appear @before-enter="beforeEnter" @enter="enter">
       <AboutMe></AboutMe>
     </transition>
-    <transition appear @before-enter="beforeEnter" @enter="enter">
+    <!-- <transition appear @before-enter="beforeEnter" @enter="enter">
       <Showcase></Showcase>
-    </transition>
+    </transition> -->
 
   </div>
 </template>
@@ -20,7 +20,7 @@
 import Presentation from "@/components/Presentation";
 import Aptitudes from "@/components/Aptitudes";
 import AboutMe from "@/components/AboutMe";
-import Showcase from "@/components/Showcase"
+//import Showcase from "@/components/Showcase"
 import gsap from 'gsap'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
@@ -29,7 +29,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 export default {
   name: "Home",
-  components: { Presentation, Aptitudes, AboutMe,Showcase },
+  components: { Presentation, Aptitudes, AboutMe /* Showcase */ },
   setup(){
     const beforeEnter =(el) =>{
       el.style.transform = 'translateY(60px)'
