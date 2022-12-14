@@ -195,7 +195,7 @@ label {
     margin-top: 50px;
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 0.5fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 0.5fr));
     grid-gap: 15px;
     box-sizing: border-box;
     align-items: center;
@@ -209,7 +209,6 @@ label {
 
   &_input-container {
     width: 100%;
-    min-width: 300px;
     max-width: 500px;
   }
 
@@ -219,9 +218,7 @@ label {
 
   @media (max-width: 980px) {
     padding: 10px 5% 84px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+   
 
     &_display {
       display: flex;
@@ -232,7 +229,6 @@ label {
 
     &_text {
       width: 90%;
-      text-align: center;
       margin-top: 0.9rem;
     }
 
