@@ -3,7 +3,10 @@
   <div class="slider_container">
     <div v-for="(image,index) in images" class="slider_fade slider_slide" >
       <div class="slider_number">{{index+1}} / {{images.length}}</div>
-      <img :src="image" alt="imagen" class="slider_images">   
+      <div class="slider_images_container">
+        <img :src="image" alt="imagen" class="slider_images">   
+      </div>
+      
     </div>
   </div>
   <button class="slider_btn slider_btn-left" @click="plusSlides(-1)"><i class="fa-solid fa-angle-left"></i></button>
