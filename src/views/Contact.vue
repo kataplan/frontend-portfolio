@@ -1,46 +1,51 @@
 <template>
   <section class="contact">
     <div v-if="this.isVisible" class="contact_form_visible">
-      <h1 class="section-title">Conversemos</h1>
-      <div class="contact_text">¡Hola! Si te interesó algo que viste, quieres darme feedback o simplemente quieres
-        chatear, mándame un mensaje acá abajo y te contactaré a penas pueda.</div>
-      <div class="contact_form-container">
-        <form class=" contact_form">
+      <div class="contact_container">
+        <h1 class="section-title">Conversemos</h1>
+        <div class="contact_text">¡Hola! Si te interesó algo que viste, quieres darme feedback o simplemente quieres
+          chatear, mándame un mensaje acá abajo y te contactaré lo más pronto posible.</div>
+        <div class="contact_form-container">
+          <form class=" contact_form">
 
-          <div class="contact_first-row">
+            <div class="contact_first-row">
 
-            <div class="contact_input-container">
-              <div class="group">
-                <input type="contact_text" class="input" v-model="name" name="name" required>
-                <label>Nombre completo</label>
+              <div class="contact_input-container">
+                <div class="group">
+                  <input type="contact_text" class="input" v-model="name" name="name" required>
+                  <label>Nombre completo</label>
+                </div>
+                <span class="contact_error" v-if="v$.name.$error">{{ v$.name.$errors[0].$message }}</span>
               </div>
-              <span class="contact_error" v-if="v$.name.$error">{{ v$.name.$errors[0].$message }}</span>
-            </div>
 
-            <div class=" contact_input-container">
-              <div class=" group">
-                <input type="contact_text" class="input" v-model="email" name="email" required>
-                <label>Email</label>
+              <div class=" contact_input-container">
+                <div class=" group">
+                  <input type="contact_text" class="input" v-model="email" name="email" required>
+                  <label>Email</label>
+                </div>
+                <span class="contact_error" v-if="v$.email.$error">{{ v$.email.$errors[0].$message }}</span>
               </div>
-              <span class="contact_error" v-if="v$.email.$error">{{ v$.email.$errors[0].$message }}</span>
-            </div>
 
-          </div>
-          <div class="contact_textarea-container">
-            <div class="group contact_textarea-container">
-              <textarea type="text" class="input contact_textarea" placeholder="a" v-model="message" name="message"
-                required></textarea>
-              <label>Escribe tu mensaje</label>
             </div>
+            <div class="contact_textarea-container">
+              <div class="group contact_textarea-container">
+                <textarea type="text" class="input contact_textarea" placeholder="a" v-model="message" name="message"
+                  required></textarea>
+                <label>Escribe tu mensaje</label>
+              </div>
 
-            <span class="contact_error" v-if="v$.message.$error">{{ v$.message.$errors[0].$message }}</span>
-          </div>
-          <VueRecaptcha :sitekey=siteKey :load-recaptcha-script="true" @verify="handleSuccess" @error="handleError">
-            <button type="submit" v-on:click=submit() class="contact_btn" data-sitekey="reCAPTCHA_site_key"
-              data-callback='onSubmit' data-action='submit'>Enviar</button>
-          </VueRecaptcha>
-        </form>
+              <span class="contact_error" v-if="v$.message.$error">{{ v$.message.$errors[0].$message }}</span>
+            </div>
+            <VueRecaptcha :sitekey=siteKey :load-recaptcha-script="true" @verify="handleSuccess" @error="handleError">
+              <button type="submit" v-on:click=submit() class="contact_btn" data-sitekey="reCAPTCHA_site_key"
+                data-callback='onSubmit' data-action='submit'>Enviar</button>
+            </VueRecaptcha>
+          </form>
+        </div>
       </div>
+
+      <img src="..\assets\images\contactame.png" class="contact_image"/>
+
     </div>
     <div v-else>
       <h1 class="section-title">Gracias por tu mensaje!</h1>
@@ -151,7 +156,7 @@ export default {
     });
 
     const handleError = () => {
-      
+
     };
 
     const handleSuccess = () => {
@@ -173,7 +178,7 @@ export default {
           name: this.name,
           email: this.email,
           message: this.message,
-          
+
         };
         try {
           const newMessagRef = doc(collection(db, "formMessages"));
@@ -258,6 +263,22 @@ label {
 
 
 .contact {
+  &_image{
+    width: 100%;
+    width: auto;
+    right: 1%;
+    z-index: 1;
+    max-height: 500px;
+  }
+  &_form_visible {
+    display: grid;
+    z-index: 1;
+    align-items: center;
+    grid-template-columns: 1fr 0.5fr;
+  }
+  &_container{
+    z-index: 2;
+  }
   min-height: 100vh;
   padding: 84px 5%;
   display: flex;
@@ -272,9 +293,7 @@ label {
     font-size: 1.2rem;
   }
 
-  &_form_visible {
-    max-width: 1200px;
-  }
+
 
   &_form-container {
     display: flex;
@@ -305,6 +324,7 @@ label {
 
   &_input-container {
     width: 100%;
+    margin-top: 10px;
   }
 
   &_textarea-container {
@@ -361,8 +381,14 @@ label {
   @media (max-width: 980px) {
     padding: 10px 5% 84px;
     align-items: center;
-    text-align: center;
-
+    
+    &_form_visible{
+      grid-template-columns: 1fr;
+    }
+    &_image{
+      display: none;
+      position: absolute;
+    }
     &_first-row {
       flex-direction: column;
     }
@@ -374,7 +400,8 @@ label {
     &_form-container {
       justify-content: center;
     }
-    .grecaptcha-badge{
+
+    .grecaptcha-badge {
       transform: translateY(-60px);
     }
   }
