@@ -27,7 +27,7 @@ export default {
         onComplete:done,
         rotate:0,
         translateX:0,
-        delay: el.dataset.index*0.6
+        delay: el.dataset.index*0.5
       })
     }
     return {beforeEnter, enter}
