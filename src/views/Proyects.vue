@@ -1,7 +1,8 @@
 <template>
   <section class="proyects">
     <h1 class="section-title">Mis Proyectos</h1>
-    <p class="proyects_text">Aquí se muestran los proyectos y trabajos que he realizado y he sido parte.<br/>Realiza una búsqueda para filtrar los proyectos, esta puede ser por nombre o tecnología utilizada.</p>
+    <p class="proyects_text">Aquí se muestran los proyectos y trabajos que he realizado y he sido parte.<br />Realiza
+      una búsqueda para filtrar los proyectos, esta puede ser por nombre o tecnología utilizada.</p>
     <div class="input-container proyects_input-container group ">
       <input type="text" @keyup="onChange($event)" class="input" placeholder="Realiza una búsqueda" required />
       <label for="input" class="control-label">Escriba aquí</label>
@@ -11,7 +12,8 @@
 
     <div class="proyects_display">
       <TransitionGroup name="fade" appear @before-enter="beforeEnter" @enter="enter">
-        <ProyectCard v-for="(item, index) in filteredProyects" :key="index" :proyect="item" :data-index="index"></ProyectCard>
+        <ProyectCard v-for="(item, index) in filteredProyects" :key="index" :proyect="item" :data-index="index">
+        </ProyectCard>
       </TransitionGroup>
     </div>
   </section>
@@ -27,23 +29,23 @@ import gsap from 'gsap'
 export default {
   name: "Home",
   components: { ProyectCard },
-  setup(){
-    
-    const beforeEnter =(el) =>{
+  setup() {
+
+    const beforeEnter = (el) => {
       el.style.transform = 'translateY(30px)'
       el.style.opacity = 0
     }
-    const enter =(el,done) =>{
-      gsap.to(el,{
-        duration:1,
-        y:0,
-        opacity:1,
+    const enter = (el, done) => {
+      gsap.to(el, {
+        duration: 1,
+        y: 0,
+        opacity: 1,
         ease: 'Power0.out',
-        onComplete:done,
-        delay: el.dataset.index*0.35
+        onComplete: done,
+        delay: el.dataset.index * 0.35
       })
     }
-    return {beforeEnter, enter}
+    return { beforeEnter, enter }
   },
   data() {
     return { proyects: [], filteredProyects: [] };
@@ -122,20 +124,39 @@ export default {
   },
   mounted() {
     const storage = localStorage.getItem("proyects")
-    if(storage){
+    const dateValue = localStorage.getItem("date")
+    if (storage) {
+      if (!dateValue) {
+        localStorage.removeItem("proyects")
+        localStorage.setItem("date", new Date())
+      } else {
+        const oldDate = Math.abs((new Date(dateValue).getTime() / 1000).toFixed(0));
+        const currentDate = Math.abs((new Date().getTime() / 1000).toFixed(0));
+        const diff = currentDate - oldDate
+        const days = Math.floor(diff / 86400)
+        if(days > 5 ){
+          localStorage.removeItem("proyects")
+          localStorage.setItem("date", new Date())
+          this.getProyects();
+
+          return
+        }
+      }
+
+      localStorage.setItem("date", new Date())
       this.filteredProyects = JSON.parse(storage)
       this.proyects = JSON.parse(storage)
     }
-    else{
+    else {
       this.getProyects();
+      localStorage.setItem("date", new Date())
+
     }
   },
 };
 </script>
 
 <style lang="scss">
-
-
 .group {
   position: relative;
 
@@ -218,7 +239,7 @@ label {
 
   @media (max-width: 980px) {
     padding: 10px 5% 84px;
-   
+
 
     &_display {
       display: flex;
