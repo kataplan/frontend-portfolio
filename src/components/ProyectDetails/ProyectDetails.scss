@@ -71,8 +71,9 @@
         width: 100%;
         align-self: flex-end;
         display: flex;
-        flex-direction: column;
+        justify-content: flex-end;
         align-items: flex-end;
+        gap: 15px;
     }
     &_date {
         color: var(--text-alternative);
