@@ -1,16 +1,16 @@
 <section class="proyect-card" @click="open = true">
   <div class="proyect-card_thumbnail_container">
     <img :src="proyect.imageThumbnail" class="proyect-card_thumbnail" :alt="proyect.id" />
-    
   </div>
   <h1 class="proyect-card_title">{{proyect.title}}</h1>
   <p class="proyect-card_subtitle">{{proyect.description}}</p>
+  <div class="backdrop" v-if="showModal" @click="open = false"></div>
 
   <Teleport to="body">
-    <div v-if="open" class="modal">
+    <div v-if="open" class="modal" @click="handleClose">
       <div class="modal_box">
         <button class="proyect-card_close" @click="handleClose"><i class="fa-solid fa-xmark"></i></button>
-        <ProyectDetails :proyect="proyect" :handleClose="this.handleClose"></ProyectDetails>
+        <ProyectDetails :proyect="proyect" :handleClose="this.handleClose" @click.stop=""></ProyectDetails>
       </div>
     </div>
   </Teleport>
