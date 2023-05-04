@@ -13,11 +13,9 @@ export default {
   },
   mounted() {
     const colorSchemeQueryList = window.matchMedia('(prefers-color-scheme: dark)');
-    console.log(colorSchemeQueryList.documentElement)
     
     const setColorScheme = e => {
       if (e.matches) {
-        console.log(document.documentElement)
         document.documentElement.className = "dark";
         this.currentColor="dark"
       } else {
