@@ -58,6 +58,9 @@ export default {
         if (item.title.toLowerCase().includes(search)) {
           return item;
         } else {
+          if (item.type.toLowerCase().includes(search)) {
+            return item
+          }
           let isIncluded = false
           item.stack.forEach((stck) => {
             if (stck.toLowerCase().includes(search)) {
@@ -134,7 +137,7 @@ export default {
         const currentDate = Math.abs((new Date().getTime() / 1000).toFixed(0));
         const diff = currentDate - oldDate
         const days = Math.floor(diff / 86400)
-        if(days > 5 ){
+        if (days > 5) {
           localStorage.removeItem("proyects")
           localStorage.setItem("date", new Date())
           this.getProyects();

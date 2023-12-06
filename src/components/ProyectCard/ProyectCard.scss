@@ -16,6 +16,11 @@
     &_subtitle {
         font-size: 1rem;
         color: var(--text-alternative);
+    }
+    &_text {
+        margin-top: 10px;
+        font-size: 1rem;
+        color: var(--text-alternative);
         overflow: hidden;
         text-overflow: ellipsis;
         max-height: 80px;

@@ -3,7 +3,8 @@
     <img :src="proyect.imageThumbnail" class="proyect-card_thumbnail" :alt="proyect.id" />
   </div>
   <h1 class="proyect-card_title">{{proyect.title}}</h1>
-  <p class="proyect-card_subtitle">{{proyect.description}}</p>
+  <h4 class="proyect-card_subtitle">{{proyect.type}}</h4>
+  <p class="proyect-card_text">{{proyect.description}}</p>
   <div class="backdrop" v-if="showModal" @click="open = false"></div>
 
   <Teleport to="body">
