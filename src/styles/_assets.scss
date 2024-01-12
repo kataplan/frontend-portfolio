@@ -58,7 +58,22 @@ button {
   color:var(--text-color);
 
 }
+* {
+  scrollbar-width: thin; /* Para navegadores que no sean webkit (Firefox, Edge) */
+}
 
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--accent);
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: var(--body-bg);
+}
 
 .input::placeholder {
   color: transparent !important;
