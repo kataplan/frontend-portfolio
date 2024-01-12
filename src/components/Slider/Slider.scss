@@ -3,7 +3,7 @@
     align-items: center;
     display: flex;
     position: relative;
-    width: 80%;
+    width: 100%;
     &_number {
         color: var(--text-color);
         position: absolute;
@@ -17,9 +17,14 @@
     &_images_container {
         display: flex;
         justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
     }
     &_images {
-        width: 80%;
+        height: 400px;
+        width: 700px;
+        object-fit:contain;
     }
     &_slide {
         display: none;
@@ -29,6 +34,8 @@
         overflow: hidden;
     }
     &_container {
+        width: 100%;
+        height: 100%;
         display: flex;
     }
     &_fade {
@@ -75,6 +82,9 @@
             opacity: 1;
         }
     }
+    
+
+    
     @media (max-width: 980px) {
         &_images{
             width: 100%;

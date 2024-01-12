@@ -20,13 +20,13 @@
       </div>
     </div>
     <div class="proyect-details_links">
+      
       <a v-if="isGithubAvailabe" :href="proyect.github">
         <img v-if="isGithubAvailabe" src="@/assets/icons/github.svg" class="proyect-details_link-icon">
       </a>
       <a v-if="isOnlineAvailabe" :href="proyect.online">
         <img src="@/assets/icons/link.svg" class="proyect-details_link-icon">
       </a>
-
     </div>
   </div>
 </section>

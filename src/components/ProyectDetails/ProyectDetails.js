@@ -52,7 +52,6 @@ export default {
             case "storage/canceled":
               // User canceled  upload
               break;
-
             case "storage/unknown":
               break;
           }
